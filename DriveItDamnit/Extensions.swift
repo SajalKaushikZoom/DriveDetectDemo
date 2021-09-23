@@ -61,7 +61,7 @@ extension String {
     func writeToFile(file: LogFile) {
 //        debugPrint("writing to file \(file.rawValue) \(file.filePath)")
         let oldEntries = readFile(file: file)
-        let data = self + oldEntries
+        let data = self + "\n" + oldEntries
         do {
             try data.write(to: file.filePath, atomically: true, encoding: .utf8)
         } catch {
@@ -86,4 +86,17 @@ extension Date {
 
 extension Notification.Name {
     static let dataPosted = Notification.Name("dataPosted")
+}
+
+
+extension Double {
+    
+    var formattedValue: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        let value = formatter.string(from: NSNumber(value: self)) ?? ""
+        return value
+    }
 }
