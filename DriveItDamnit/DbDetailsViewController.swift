@@ -15,7 +15,9 @@ class DbDetailsViewController: UIViewController {
     
     var dataSource = [Trip]() {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -27,12 +29,15 @@ class DbDetailsViewController: UIViewController {
     }
     
     func fetchDBData() {
-        let repo = TripRepository()
+        let repo = DIHelper().getTripRepository()
         repo.getTrips { [weak self] trips in
-            self?.dataSource = trips
+            self?.dataSource = trips.reversed()
         }
     }
     
+    deinit {
+        print(#file + #function)
+    }
     
     
 }

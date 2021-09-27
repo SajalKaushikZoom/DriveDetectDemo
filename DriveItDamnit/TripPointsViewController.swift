@@ -26,14 +26,17 @@ class TripPointsViewController: UIViewController {
     }
     
     func fetchDBData() {
-        let repo = TripRepository()
+        let repo = DIHelper().getTripRepository()
         guard let trip = trip else { return }
         repo.getTripPoints(trip_id: trip.id) { [weak self] (tripPoints) in
-            self?.dataSource = tripPoints
+            self?.dataSource = tripPoints.reversed()
         }
     }
     
     
+    deinit {
+        print(#file + #function)
+    }
     
 }
 
@@ -60,14 +63,17 @@ extension TripPointsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row == .zero { return
-            
+        if indexPath.row == .zero { return }
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController" ) as? MapViewController {
+            vc.trip = trip
+            navigationController?.pushViewController(vc, animated: true)
         }
-        let data = dataSource[indexPath.row-1]
-        let speed: Double = (data.speed) as! Double
 
-        let alert = UIAlertController(title: data.trip_id, message: "lat: \(data.lat)\n long: \(data.lon)\n speed: \(speed.formattedValue)\n time: \(String(describing: data.timestamp))", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
-        present(alert, animated: true, completion: nil)
+//        let data = dataSource[indexPath.row-1]
+//        let speed: Double = (data.speed) as! Double
+
+//        let alert = UIAlertController(title: data.trip_id, message: "lat: \(data.lat)\n long: \(data.lon)\n speed: \(speed.formattedValue)\n time: \(String(describing: data.timestamp))", preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+//        present(alert, animated: true, completion: nil)
     }
 }

@@ -10,6 +10,7 @@ import ZMS
 import CoreLocation
 import zmsKmm
 
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var speedView: UIView!
@@ -20,12 +21,17 @@ class ViewController: UIViewController {
     let notificationManager = LocalNotificationService.shared
     
     
-    var tripID: String? = nil
-    let tripRepo = TripRepository()
+    var tripID: String? = nil {
+        didSet {
+            "tripID created at \(Date().appDateFormat)".writeToFile(file: .addDebugLogs)
+        }
+    }
+    let tripRepo = DIHelper().getTripRepository()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        "\(#function) at \(Date().appDateFormat)".writeToFile(file: .addDebugLogs)
         setupView()
         requestPermission()
         
@@ -37,8 +43,8 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        "\(#function) at \(Date().appDateFormat)".writeToFile(file: .addDebugLogs)
         super.viewWillAppear(animated)
-        //addHomeLocation()
     }
     
     @IBAction func setHomeRegion(_ sender: UIButton) {
@@ -68,7 +74,7 @@ extension ViewController {
     
     @objc func restartService() {
         locationManager = LocationManager.shared
-        locationManager.stop()
+//        locationManager.stop()
         locationManager.start()
         let data = "ViewController.didBecomeActiveNotification at: \(Date().appDateFormat)"
         data.writeToFile(file: .addDebugLogs)
@@ -85,6 +91,18 @@ extension ViewController {
 
 
 extension ViewController: LocationManagerDelegate {
+    
+    func didExitHome() {
+        tripID = tripRepo.startTrip()
+    }
+    
+    
+    func didEnterHome() {
+        tripID = nil
+        "didEnterHome at \(Date().appDateFormat)"
+        locationManager.stop()
+    }
+    
     
     func locationManager(_ manager: LocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -129,10 +147,8 @@ extension ViewController {
     
     
     func saveToDB(location: CLLocation?) {
-        if tripID == nil {
-            tripID = tripRepo.startTrip()
-        }
-        if let tripID = tripID, let location = location {
+        guard let tripID = tripID else { return }
+        if let location = location {
             tripRepo.addTripPoint(trip_id: tripID, lat: location.coordinate.latitude, lon: location.coordinate.longitude, speed: location.speed, timestamp: location.timestamp.appDateFormat)
         }
     }
