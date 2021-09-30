@@ -9,87 +9,64 @@ import UIKit
 import ZMS
 import CoreLocation
 
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var speedView: UIView!
     @IBOutlet weak var speedLabel: UILabel!
-
-    let locationManager = LocationManager.shared
-    let notificationManager = LocalNotificationService.shared
+    @IBOutlet weak var distanceLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         requestPermission()
-       // registerAppNotification()
+        
+        ZMSApp.shared.delegate = self
+        ZMSApp.shared.start()
+        addHomeLocation()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addHomeLocation()
-        locationManager.start()
-        locationManager.delegate = self
     }
-
+    
+    @IBAction func setHomeRegion(_ sender: UIButton) {
+        addHomeLocation()
+    }
+    
+    @IBAction func stop(_ sender: UIButton) {
+        ZMSApp.shared.stop()
+    }
+    
+    @IBAction func start(_ sender: UIButton) {
+        ZMSApp.shared.start()
+    }
+    
 }
 
 
 extension ViewController {
     
     func requestPermission() {
-        LocationManager.shared.requestAuthorization()
-        notificationManager.requestAuthorization()
-    }
-    
-    func registerAppNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(restartService), name: UIApplication.willTerminateNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(restartService), name: UIApplication.didEnterBackgroundNotification, object: nil)
-    }
-    
-    
-    @objc func restartService() {
-        locationManager.stop()
-        locationManager.start()
+        ZMSApp.shared.requestNeededPermissions()
     }
     
     func addHomeLocation() {
-        let location = locationManager.getLocation
-        locationManager.createRegion(with: location, addressType: .home)
+        ZMSApp.shared.addHomeRegion()
     }
     
 }
 
 
-extension ViewController: LocationManagerDelegate {
-    
-    func locationManager(_ manager: LocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let cloc = locations.last
-        let speedinKMPHr = (cloc?.speed ?? 0)*3.8
-        let formattedSpped =  String(format: "%.2f", speedinKMPHr)
-        speedLabel.text = formattedSpped
-        let data = formatData(data: cloc)
-        NotificationCenter.default.post(name: .dataPosted, object: nil)
-        data.writeToFile(file: .speedLog)
+extension ViewController: ZMSAppDelegate {
+    func detectedSpeed(speed: Double, at: CLLocation) {
+        speedLabel.text = speed.formattedValue
+        distanceLabel.text = "\(ZMSApp.shared.distanceFromHome.formattedValue) meter"
+
     }
-    
-    
-    func formatData(data: CLLocation?) -> String {
-        var formattedData = ""
-        let speedinKMPHr = (data?.speed ?? 0)*3.8
-        let formattedSpped =  String(format: "%.2f", speedinKMPHr)
-        formattedData.append("Speed: \(formattedSpped)")
-        formattedData.append("time \(String(describing: data?.timestamp.appDateFormat))")
-        formattedData.append("\n")
-        return formattedData
-    }
-    
     
 }
-
-
-
-
 
 extension ViewController {
     

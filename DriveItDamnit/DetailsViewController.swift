@@ -15,6 +15,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateTextView), name: .dataPosted, object: nil)
+        segmentControl.selectedSegmentIndex = 1
         updateTextView()
     }
     

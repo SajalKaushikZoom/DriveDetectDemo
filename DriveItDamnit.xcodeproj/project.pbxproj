@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		6C6E3C7A26F73CC700051671 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E3C7926F73CC700051671 /* Alerts.swift */; };
 		6C6E3C7D26F742E800051671 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E3C7C26F742E800051671 /* DetailsViewController.swift */; };
+		6C71C62226FB29CD003C790A /* speed_msg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C71C62126FB29CD003C790A /* speed_msg.wav */; };
+		6C71C62426FB2EC0003C790A /* DbDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C62326FB2EC0003C790A /* DbDetailsViewController.swift */; };
+		6C71C63726FC7B76003C790A /* TripPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C63626FC7B76003C790A /* TripPointsViewController.swift */; };
+		6C71C64626FDC81C003C790A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C64526FDC81C003C790A /* MapViewController.swift */; };
+		6C7F38122701E83A00CA9A5C /* oh_my_god.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */; };
 		6CD2421B26F4B3D500498531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2421A26F4B3D500498531 /* AppDelegate.swift */; };
-		6CD2421D26F4B3D500498531 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2421C26F4B3D500498531 /* SceneDelegate.swift */; };
 		6CD2421F26F4B3D500498531 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2421E26F4B3D500498531 /* ViewController.swift */; };
 		6CD2422226F4B3D500498531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2422026F4B3D500498531 /* Main.storyboard */; };
 		6CD2422426F4B3D700498531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2422326F4B3D700498531 /* Assets.xcassets */; };
@@ -47,9 +51,13 @@
 /* Begin PBXFileReference section */
 		6C6E3C7926F73CC700051671 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		6C6E3C7C26F742E800051671 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		6C71C62126FB29CD003C790A /* speed_msg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = speed_msg.wav; sourceTree = "<group>"; };
+		6C71C62326FB2EC0003C790A /* DbDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbDetailsViewController.swift; sourceTree = "<group>"; };
+		6C71C63626FC7B76003C790A /* TripPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPointsViewController.swift; sourceTree = "<group>"; };
+		6C71C64526FDC81C003C790A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oh_my_god.mp3; sourceTree = "<group>"; };
 		6CD2421726F4B3D500498531 /* DriveItDamnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveItDamnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD2421A26F4B3D500498531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6CD2421C26F4B3D500498531 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6CD2421E26F4B3D500498531 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6CD2422126F4B3D500498531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CD2422326F4B3D700498531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +82,8 @@
 		6CD2420E26F4B3D500498531 = {
 			isa = PBXGroup;
 			children = (
+				6C71C62126FB29CD003C790A /* speed_msg.wav */,
+				6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */,
 				6CD2424526F4B55900498531 /* ZMS.xcodeproj */,
 				6CD2421926F4B3D500498531 /* DriveItDamnit */,
 				6CD2421826F4B3D500498531 /* Products */,
@@ -93,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				6CD2421A26F4B3D500498531 /* AppDelegate.swift */,
-				6CD2421C26F4B3D500498531 /* SceneDelegate.swift */,
 				6CD2421E26F4B3D500498531 /* ViewController.swift */,
 				6CD2422026F4B3D500498531 /* Main.storyboard */,
 				6CD2422326F4B3D700498531 /* Assets.xcassets */,
@@ -102,6 +111,9 @@
 				6CD2422F26F4B49E00498531 /* Extensions.swift */,
 				6C6E3C7926F73CC700051671 /* Alerts.swift */,
 				6C6E3C7C26F742E800051671 /* DetailsViewController.swift */,
+				6C71C62326FB2EC0003C790A /* DbDetailsViewController.swift */,
+				6C71C63626FC7B76003C790A /* TripPointsViewController.swift */,
+				6C71C64526FDC81C003C790A /* MapViewController.swift */,
 			);
 			path = DriveItDamnit;
 			sourceTree = "<group>";
@@ -195,8 +207,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C71C62226FB29CD003C790A /* speed_msg.wav in Resources */,
 				6CD2422726F4B3D700498531 /* LaunchScreen.storyboard in Resources */,
 				6CD2422426F4B3D700498531 /* Assets.xcassets in Resources */,
+				6C7F38122701E83A00CA9A5C /* oh_my_god.mp3 in Resources */,
 				6CD2422226F4B3D500498531 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,11 +223,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CD2421F26F4B3D500498531 /* ViewController.swift in Sources */,
+				6C71C63726FC7B76003C790A /* TripPointsViewController.swift in Sources */,
+				6C71C62426FB2EC0003C790A /* DbDetailsViewController.swift in Sources */,
 				6C6E3C7A26F73CC700051671 /* Alerts.swift in Sources */,
 				6CD2421B26F4B3D500498531 /* AppDelegate.swift in Sources */,
-				6CD2421D26F4B3D500498531 /* SceneDelegate.swift in Sources */,
 				6CD2423026F4B49E00498531 /* Extensions.swift in Sources */,
 				6C6E3C7D26F742E800051671 /* DetailsViewController.swift in Sources */,
+				6C71C64626FDC81C003C790A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +378,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2957RWSJW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DriveItDamnit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-lsqlite3";
 				PRODUCT_BUNDLE_IDENTIFIER = io.sajal.DriveItDamnit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -381,11 +402,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2957RWSJW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DriveItDamnit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-lsqlite3";
 				PRODUCT_BUNDLE_IDENTIFIER = io.sajal.DriveItDamnit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
