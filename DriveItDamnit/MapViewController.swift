@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import zmsKmm
+import ZMS
 
 class MapViewController: UIViewController {
 
@@ -17,9 +18,7 @@ class MapViewController: UIViewController {
     
     var dataSource = [Trip_point]() {
         didSet {
-            DispatchQueue.main.async {
-                self.renderView()
-            }
+            self.renderView()
         }
     }
     
@@ -36,10 +35,9 @@ class MapViewController: UIViewController {
     }
     
     func fetchDB() {
-        guard let trip = trip else {return}
-        let repo = DIHelper().getTripRepository()
-        repo.getTripPoints(trip_id: trip.id) { [weak self] (points) in
-            self?.dataSource = points
+        guard let tripID = trip?.id else { return }
+        ZMSApp.shared.fetchTripPoints(forTripID: tripID) { (points) in
+            self.dataSource = points
         }
     }
     
@@ -95,10 +93,6 @@ extension MapViewController: MKMapViewDelegate {
         } else {
             annotationView!.annotation = annotation
         }
-
-//        annotationView?.clusteringIdentifier = "AnnotationCluster"
-//        annotationView?.canShowCallout = true
-//        annotationView?.tintColor = .cyan
         return annotationView
     }
     

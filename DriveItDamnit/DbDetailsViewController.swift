@@ -7,6 +7,7 @@
 
 import UIKit
 import zmsKmm
+import ZMS
 
 class DbDetailsViewController: UIViewController {
     
@@ -15,9 +16,7 @@ class DbDetailsViewController: UIViewController {
     
     var dataSource = [Trip]() {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
     
@@ -29,8 +28,7 @@ class DbDetailsViewController: UIViewController {
     }
     
     func fetchDBData() {
-        let repo = DIHelper().getTripRepository()
-        repo.getTrips { [weak self] trips in
+        ZMSApp.shared.fetchTrip { [weak self] (trips) in
             self?.dataSource = trips.reversed()
         }
     }
@@ -39,10 +37,7 @@ class DbDetailsViewController: UIViewController {
         print(#file + #function)
     }
     
-    
 }
-
-
 
 extension DbDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

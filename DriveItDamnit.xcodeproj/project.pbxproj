@@ -13,8 +13,7 @@
 		6C71C62426FB2EC0003C790A /* DbDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C62326FB2EC0003C790A /* DbDetailsViewController.swift */; };
 		6C71C63726FC7B76003C790A /* TripPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C63626FC7B76003C790A /* TripPointsViewController.swift */; };
 		6C71C64626FDC81C003C790A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C71C64526FDC81C003C790A /* MapViewController.swift */; };
-		6C71C6532701903B003C790A /* zmsKmm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C71C6512701901F003C790A /* zmsKmm.framework */; };
-		6C71C6542701903B003C790A /* zmsKmm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C71C6512701901F003C790A /* zmsKmm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C7F38122701E83A00CA9A5C /* oh_my_god.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */; };
 		6CD2421B26F4B3D500498531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2421A26F4B3D500498531 /* AppDelegate.swift */; };
 		6CD2421F26F4B3D500498531 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2421E26F4B3D500498531 /* ViewController.swift */; };
 		6CD2422226F4B3D500498531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2422026F4B3D500498531 /* Main.storyboard */; };
@@ -43,7 +42,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6CD2424E26F4B56500498531 /* ZMS.framework in Embed Frameworks */,
-				6C71C6542701903B003C790A /* zmsKmm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +55,7 @@
 		6C71C62326FB2EC0003C790A /* DbDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbDetailsViewController.swift; sourceTree = "<group>"; };
 		6C71C63626FC7B76003C790A /* TripPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPointsViewController.swift; sourceTree = "<group>"; };
 		6C71C64526FDC81C003C790A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		6C71C6512701901F003C790A /* zmsKmm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = zmsKmm.framework; sourceTree = "<group>"; };
+		6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oh_my_god.mp3; sourceTree = "<group>"; };
 		6CD2421726F4B3D500498531 /* DriveItDamnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveItDamnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD2421A26F4B3D500498531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CD2421E26F4B3D500498531 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CD2424D26F4B56500498531 /* ZMS.framework in Frameworks */,
-				6C71C6532701903B003C790A /* zmsKmm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +82,8 @@
 		6CD2420E26F4B3D500498531 = {
 			isa = PBXGroup;
 			children = (
-				6C71C6512701901F003C790A /* zmsKmm.framework */,
 				6C71C62126FB29CD003C790A /* speed_msg.wav */,
+				6C7F38112701E83A00CA9A5C /* oh_my_god.mp3 */,
 				6CD2424526F4B55900498531 /* ZMS.xcodeproj */,
 				6CD2421926F4B3D500498531 /* DriveItDamnit */,
 				6CD2421826F4B3D500498531 /* Products */,
@@ -213,6 +210,7 @@
 				6C71C62226FB29CD003C790A /* speed_msg.wav in Resources */,
 				6CD2422726F4B3D700498531 /* LaunchScreen.storyboard in Resources */,
 				6CD2422426F4B3D700498531 /* Assets.xcassets in Resources */,
+				6C7F38122701E83A00CA9A5C /* oh_my_god.mp3 in Resources */,
 				6CD2422226F4B3D500498531 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

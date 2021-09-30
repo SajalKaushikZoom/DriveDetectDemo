@@ -1,6 +1,0 @@
-framework module zmsKmm {
-    umbrella header "zmsKmm.h"
-
-    export *
-    module * { export * }
-}

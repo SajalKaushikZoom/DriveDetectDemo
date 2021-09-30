@@ -7,6 +7,7 @@
 
 import UIKit
 import zmsKmm
+import ZMS
 
 class TripPointsViewController: UIViewController {
 
@@ -26,10 +27,9 @@ class TripPointsViewController: UIViewController {
     }
     
     func fetchDBData() {
-        let repo = DIHelper().getTripRepository()
-        guard let trip = trip else { return }
-        repo.getTripPoints(trip_id: trip.id) { [weak self] (tripPoints) in
-            self?.dataSource = tripPoints.reversed()
+        guard let tripID = trip?.id else { return }
+        ZMSApp.shared.fetchTripPoints(forTripID: tripID) { (points) in
+            self.dataSource = points.reversed()
         }
     }
     
@@ -68,12 +68,5 @@ extension TripPointsViewController: UITableViewDataSource, UITableViewDelegate {
             vc.trip = trip
             navigationController?.pushViewController(vc, animated: true)
         }
-
-//        let data = dataSource[indexPath.row-1]
-//        let speed: Double = (data.speed) as! Double
-
-//        let alert = UIAlertController(title: data.trip_id, message: "lat: \(data.lat)\n long: \(data.lon)\n speed: \(speed.formattedValue)\n time: \(String(describing: data.timestamp))", preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
-//        present(alert, animated: true, completion: nil)
     }
 }
